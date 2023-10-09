@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo/firebase/firebase_utels.dart';
+import 'package:todo/firebase/modules/task.dart';
 
 class Showbottomsheet extends StatefulWidget {
   Showbottomsheet({super.key});
@@ -10,6 +12,8 @@ class Showbottomsheet extends StatefulWidget {
 class _ShowbottomsheetState extends State<Showbottomsheet> {
   GlobalKey<FormState>  formkey = GlobalKey();
   DateTime date =DateTime.now();
+  String? title ;
+  String? description;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,6 +39,9 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
                         return null;
                       }
                     },
+                    onChanged: (text){
+                      title=text;
+                    },
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -47,6 +54,9 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
                         return null;
                       }
                     },
+                    onChanged: (text){
+                    title=text;
+                  },
                     maxLines: 3,
                   )
                 ],
@@ -67,7 +77,7 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
           ),
           SizedBox(height: 30),
           ElevatedButton(onPressed: (){
-            addtask();
+            addthetask();
           },
               child:Text('Add',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black,fontSize: 22  ),)
           )
@@ -76,9 +86,11 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
     );
   }
 
-  void addtask() {
+  void addthetask() {
 if (formkey.currentState!.validate()){
-  // add task to db
+  Task task=Task(title: title, descreption: description, date: date);
+  FirebaseUtils.addtask(task);
+  Navigator.pop(context);
 }
   }
 
