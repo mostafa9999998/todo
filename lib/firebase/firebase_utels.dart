@@ -17,6 +17,7 @@ class FirebaseUtils {
     var taskcollection = collection();
     var docs =taskcollection.doc();
     task.id = docs.id;
+    print ('sucsses');
    return docs.set(task);
  }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/firebase/firebase_utels.dart';
 import 'package:todo/firebase/modules/task.dart';
+import 'package:todo/provider/list_provider.dart';
 
 class Showbottomsheet extends StatefulWidget {
   Showbottomsheet({super.key});
@@ -14,8 +16,10 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
   DateTime date =DateTime.now();
   String? title ;
   String? description;
+  late Listprovider provider;
   @override
   Widget build(BuildContext context) {
+    provider =Provider.of(context);
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -55,7 +59,7 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
                       }
                     },
                     onChanged: (text){
-                    title=text;
+                    description=text;
                   },
                     maxLines: 3,
                   )
@@ -90,6 +94,7 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
 if (formkey.currentState!.validate()){
   Task task=Task(title: title, descreption: description, date: date);
   FirebaseUtils.addtask(task);
+  provider.addtasktolist();
   Navigator.pop(context);
 }
   }

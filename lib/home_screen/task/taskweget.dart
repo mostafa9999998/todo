@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/firebase/modules/task.dart';
+import 'package:todo/provider/list_provider.dart';
 import 'package:todo/theme/mytheme.dart';
 
 class Taskwedgetitem extends StatelessWidget {
-  const Taskwedgetitem({super.key});
 
+   Task task ;
+   Taskwedgetitem({required this.task});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,8 +29,8 @@ class Taskwedgetitem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('play basketball',style: Theme.of(context).textTheme.bodyLarge,),
-                Text('10:30 AM',style: Theme.of(context).textTheme.bodySmall,)
+                Text(task.title??'',style: Theme.of(context).textTheme.bodyLarge,),
+                Text(task.descreption??'',style: Theme.of(context).textTheme.bodySmall,)
               ],
             ),
           ),

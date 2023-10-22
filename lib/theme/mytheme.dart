@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Mytheme {
- static Color primarycolor =Color(0xff5D9CEC);
- static Color backgroundcolor =Color(0xffddeada);
- static Color graycolor =Color(0xff9ba4a9);
- static Color greenycolor =Color(0xff61E757);
- static Color whitecolor =Color(0xffffffff);
- static Color blackcolor =Color(0xff303030);
- static Color darkprimarycolor =Color(0xff5D9CEC);
- static Color darkbackgroundcolor =Color(0xff060E1E);
- static Color darkunselectedcolor = Color(0xffC8C9CB);
+ static const Color primarycolor =Color(0xff5D9CEC);
+ static const Color backgroundcolor =Color(0xffddeada);
+ static const Color graycolor =Color(0xff9ba4a9);
+ static const Color greenycolor =Color(0xff61E757);
+ static const Color whitecolor =Color(0xffffffff);
+ static const Color blackcolor =Color(0xff303030);
+ static const Color darkprimarycolor =Color(0xff5D9CEC);
+ static const Color darkbackgroundcolor =Color(0xff060E1E);
+ static const Color darkunselectedcolor = Color(0xffC8C9CB);
 
  static ThemeData lightmode(){
     return ThemeData(
