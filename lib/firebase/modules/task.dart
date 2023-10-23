@@ -12,7 +12,7 @@ class Task {
     id = data['id'];
     title = data['title'];
     descreption = data['desc'];
-    date = DateTime.fromMillisecondsSinceEpoch(data[date]);
+    date = DateTime.fromMillisecondsSinceEpoch(data['date']);
     isdone = data['isdone'];
   }
   Map<String, dynamic> tojeson() {

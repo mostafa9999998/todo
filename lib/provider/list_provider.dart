@@ -5,16 +5,12 @@ import 'package:todo/firebase/modules/task.dart';
 
 class Listprovider extends ChangeNotifier{
   List <Task> tasklist =[];
+
   DateTime selectdate = DateTime.now() ;
+
   void addtasktolist()async{
     QuerySnapshot<Task> collec =await FirebaseUtils.collection().get();
-  /*List<QueryDocumentSnapshot>docs= collec.docs;
-  for(int i=0;i<docs.length;i++){
-    Map<String,dynamic> json = docs[i].data() as Map<String,dynamic>;
-    Task task = Task.fromjeson(json);
-    tasklist.add(task);
-  }*/
-  tasklist =  collec.docs.map((doc) {
+    tasklist = collec.docs.map((doc) {
       return doc.data();
     }).toList();
    tasklist=tasklist.where((task)  {
@@ -32,6 +28,7 @@ class Listprovider extends ChangeNotifier{
       return task1.date!.compareTo(task2.date!);
      },
    );
+
     notifyListeners();
   }
 void changeselecteddate(DateTime newdate){

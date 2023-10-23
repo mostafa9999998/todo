@@ -27,7 +27,7 @@ class Taskscreen extends StatelessWidget {
           activeDayColor: Colors.white,
           activeBackgroundDayColor: Colors.redAccent[100],
           dotsColor: Colors.redAccent[100],
-          selectableDayPredicate: (date) => date.day != 23,
+          //selectableDayPredicate: (date) => date.day != 23,
           locale: 'en_ISO',
         ),
         Expanded(
